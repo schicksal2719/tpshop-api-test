@@ -169,7 +169,7 @@ allure serve ./reports/allure_results
 🏷️ 严重级别标记
 🔧 框架设计
 ```
-分层架构
+### 分层架构
 ```text
 ┌─────────────────────────────┐
 │      测试用例层 (scripts/)   │  ← 测试逻辑
@@ -181,7 +181,9 @@ allure serve ./reports/allure_results
 │      测试数据层 (data/)      │  ← JSON 数据驱动
 └─────────────────────────────┘
 ```
-数据驱动
+
+### 数据驱动
+
 所有测试数据存储在 JSON 文件中，新增用例只需添加 JSON 数据，无需修改代码：
 ```JSON
 {
@@ -194,7 +196,9 @@ allure serve ./reports/allure_results
     "expected_msg": "登陆成功"
 }
 ```
-TPShop 登录和注册需要验证码，项目中通过修改后端代码设置了万能验证码 8888，方便自动化测试。
+### TPShop 
+
+登录和注册需要验证码，项目中通过修改后端代码设置了万能验证码 8888，方便自动化测试。
 
 ## 🔄 Jenkins 持续集成
 
