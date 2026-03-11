@@ -11,9 +11,6 @@ from config import BASE_DIR
 @allure.feature("购物车模块")
 @allure.story("添加商品到购物车")
 class TestAddCart:
-    def __init__(self):
-        self.KNOWN_BUGS = None
-
     def do_login(self,session):
         login_data = {
             "username": "13800138006",
