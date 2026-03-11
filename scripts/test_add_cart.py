@@ -32,12 +32,6 @@ class TestAddCart:
         """判断是否需要登录"""
         allure.dynamic.title(title)
 
-        if "正常" in title:
-            allure.dynamic.severity(allure.severity_level.CRITICAL)
-        elif title in self.KNOWN_BUGS:
-            allure.dynamic.severity(allure.severity_level.MINOR)
-        else:
-            allure.dynamic.severity(allure.severity_level.NORMAL)
 
         if need_login:
             with allure.step("前置：登录"):
@@ -55,10 +49,3 @@ class TestAddCart:
         with allure.step("断言结果"):
             common_add_cart_assert(resp, expected_status_code, expected_status, expected_msg)
 
-        if title in self.KNOWN_BUGS:
-            if resp.json()["status"] == 1:
-                allure.attach(
-                    f"【{title}】应返回失败，但返回了成功",
-                    name="⚠️ BUG",
-                    attachment_type=allure.attachment_type.TEXT
-                )
