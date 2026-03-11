@@ -1,0 +1,198 @@
+[
+    {
+        "title": "完整正常流程-添加1个商品并下单",
+        "login_data": {
+            "username": "13800138006",
+            "password": "123456",
+            "verify_code": "8888"
+        },
+        "cart_data": {
+            "goods_id": "28",
+            "goods_num": "1"
+        },
+        "order_data": {
+            "address_id": "1",
+            "pay_code": "cod",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": "正常下单测试"
+        },
+        "steps": ["login", "add_cart", "cart1", "cart2", "cart3"],
+        "expected_login_status": 1,
+        "expected_cart_status": 1,
+        "expected_order_status": 1,
+        "expected_order_msg": "成功"
+    },
+    {
+        "title": "完整正常流程-添加多个商品并下单",
+        "login_data": {
+            "username": "13800138006",
+            "password": "123456",
+            "verify_code": "8888"
+        },
+        "cart_data": {
+            "goods_id": "28",
+            "goods_num": "5"
+        },
+        "order_data": {
+            "address_id": "1",
+            "pay_code": "cod",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": "多个商品下单测试"
+        },
+        "steps": ["login", "add_cart", "cart1", "cart2", "cart3"],
+        "expected_login_status": 1,
+        "expected_cart_status": 1,
+        "expected_order_status": 1,
+        "expected_order_msg": "成功"
+    },
+    {
+        "title": "添加不同商品后下单",
+        "login_data": {
+            "username": "13800138006",
+            "password": "123456",
+            "verify_code": "8888"
+        },
+        "cart_data": {
+            "goods_id": "28",
+            "goods_num": "1"
+        },
+        "order_data": {
+            "address_id": "1",
+            "pay_code": "cod",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": "不同商品下单"
+        },
+        "steps": ["login", "add_cart", "cart1", "cart2", "cart3"],
+        "expected_login_status": 1,
+        "expected_cart_status": 1,
+        "expected_order_status": 1,
+        "expected_order_msg": "成功"
+    },
+    {
+        "title": "添加商品修改数量后下单",
+        "login_data": {
+            "username": "13800138006",
+            "password": "123456",
+            "verify_code": "8888"
+        },
+        "cart_data": {
+            "goods_id": "28",
+            "goods_num": "1"
+        },
+        "change_data": {
+            "cart[id]": "51",
+            "cart[goods_num]": "3",
+            "cart[selected]": "1"
+        },
+        "order_data": {
+            "address_id": "1",
+            "pay_code": "cod",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": "修改数量后下单"
+        },
+        "steps": ["login", "add_cart", "change_num", "cart1", "cart2", "cart3"],
+        "expected_login_status": 1,
+        "expected_cart_status": 1,
+        "expected_change_status": 1,
+        "expected_order_status": 1,
+        "expected_order_msg": "成功"
+    },
+    {
+        "title": "未登录直接添加商品并下单",
+        "login_data": {},
+        "cart_data": {
+            "goods_id": "28",
+            "goods_num": "1",
+            "goods_spec": ""
+        },
+        "order_data": {
+            "address_id": "1",
+            "pay_code": "cod",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": ""
+        },
+        "steps": ["add_cart", "cart1", "cart2", "cart3"],
+        "expected_login_status": null,
+        "expected_cart_status": 1,
+        "expected_order_status": -100,
+        "expected_order_msg": "登录"
+    },
+    {
+        "title": "登录后不添加商品直接下单",
+        "login_data": {
+            "username": "13800138006",
+            "password": "123456",
+            "verify_code": "8888"
+        },
+        "cart_data": {},
+        "order_data": {
+            "address_id": "1",
+            "pay_code": "cod",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": ""
+        },
+        "steps": ["login", "cart2", "cart3"],
+        "expected_login_status": 1,
+        "expected_cart_status": null,
+        "expected_order_status": -1,
+        "expected_order_msg": "购物车"
+    },
+    {
+        "title": "登录添加商品跳过cart2直接提交",
+        "login_data": {
+            "username": "13800138006",
+            "password": "123456",
+            "verify_code": "8888"
+        },
+        "cart_data": {
+            "goods_id": "28",
+            "goods_num": "1",
+            "goods_spec": ""
+        },
+        "order_data": {
+            "address_id": "1",
+            "pay_code": "cod",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": ""
+        },
+        "steps": ["login", "add_cart", "cart1", "cart3"],
+        "expected_login_status": 1,
+        "expected_cart_status": 1,
+        "expected_order_status": -1,
+        "expected_order_msg": "订单"
+    },
+    {
+        "title": "登录下单后退出再下单",
+        "login_data": {
+            "username": "13800138006",
+            "password": "123456",
+            "verify_code": "8888"
+        },
+        "cart_data": {
+            "goods_id": "28",
+            "goods_num": "1",
+            "goods_spec": ""
+        },
+        "order_data": {
+            "address_id": "1",
+            "pay_code": "cod",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": ""
+        },
+        "steps": ["login", "add_cart", "cart1", "cart2", "cart3", "logout", "cart3_again"],
+        "expected_login_status": 1,
+        "expected_cart_status": 1,
+        "expected_order_status": 1,
+        "expected_order_msg": "成功",
+        "expected_order_again_status": -100,
+        "expected_order_again_msg": "登录"
+    }
+]

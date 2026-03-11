@@ -1,0 +1,120 @@
+[
+    {
+        "title": "正常添加一个商品",
+        "need_login": true,
+        "goods_id": "28",
+        "goods_num": "1",
+        "expected_status_code": 200,
+        "expected_status": 1,
+        "expected_msg": "加入购物车成功"
+    },
+    {
+        "title": "添加多个同一商品",
+        "need_login": true,
+        "goods_id": "28",
+        "goods_num": "5",
+        "expected_status_code": 200,
+        "expected_status": 1,
+        "expected_msg": "加入购物车成功"
+    },
+    {
+        "title": "重复添加同一商品",
+        "need_login": true,
+        "goods_id": "28",
+        "goods_num": "1",
+        "is_repeat": true,
+        "expected_status_code": 200,
+        "expected_status": 1,
+        "expected_msg": "加入购物车成功"
+    },
+    {
+        "title": "添加不同商品",
+        "need_login": true,
+        "goods_id": "311",
+        "goods_num": "1",
+        "expected_status_code": 200,
+        "expected_status": 1,
+        "expected_msg": "加入购物车成功"
+    },
+    {
+        "title": "添加不存在的商品",
+        "need_login": true,
+        "goods_id": "999999",
+        "goods_num": "1",
+        "expected_status_code": 200,
+        "expected_status": 0,
+        "expected_msg": "购买商品不存在"
+    },
+    {
+        "title": "添加商品数量为0",
+        "need_login": true,
+        "goods_id": "28",
+        "goods_num": "0",
+        "expected_status_code": 200,
+        "expected_status": 0,
+        "expected_msg": "购买商品数量不能为0"
+    },
+    {
+        "title": "添加商品数量为负数",
+        "need_login": true,
+        "goods_id": "28",
+        "goods_num": "-1",
+        "expected_status_code": 200,
+        "expected_status": 0,
+        "expected_msg": "不能为负数"
+    },
+    {
+        "title": "添加商品数量超过库存",
+        "need_login": true,
+        "goods_id": "28",
+        "goods_num": "999999",
+        "expected_status_code": 200,
+        "expected_status": 0,
+        "expected_msg": "购买商品数量大于200"
+    },
+    {
+        "title": "商品id为空",
+        "need_login": true,
+        "goods_id": "",
+        "goods_num": "1",
+        "expected_status_code": 200,
+        "expected_status": 0,
+        "expected_msg": "请选择要购买的商品"
+    },
+    {
+        "title": "商品id为字符",
+        "need_login": true,
+        "goods_id": "abc",
+        "goods_num": "1",
+        "expected_status_code": 200,
+        "expected_status": 0,
+        "expected_msg": "请选择要购买的商品"
+    },
+    {
+        "title": "未登录添加商品",
+        "need_login": false,
+        "goods_id": "28",
+        "goods_num": "1",
+        "expected_status_code": 200,
+        "expected_status": 0,
+        "expected_msg": "请登录登录"
+    },
+    {
+        "title": "添加商品数量为小数",
+        "need_login": true,
+        "goods_id": "28",
+        "goods_num": "1.5",
+        "expected_status_code": 200,
+        "expected_status": -1,
+        "expected_msg": "加入购物车成功"
+    },
+    {
+        "title": "无参添加商品",
+        "need_login": true,
+        "goods_id": null,
+        "goods_num": null,
+        "expected_status_code": 200,
+        "expected_status": 0,
+        "expected_msg": "请选择要购买的商品"
+    }
+]

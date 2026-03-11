@@ -1,0 +1,149 @@
+[
+    {
+        "title": "正常提交订单",
+        "need_login": true,
+        "need_add_cart": true,
+        "need_cart2": true,
+        "is_repeat": false,
+        "order_data": {
+            "address_id": "1",
+            "pay_code": "cod",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": "正常下单测试"
+        },
+        "expected_status_code": 200,
+        "expected_status": 1,
+        "expected_msg": "成功"
+    },
+    {
+        "title": "未登录提交订单",
+        "need_login": false,
+        "need_add_cart": false,
+        "need_cart2": false,
+        "is_repeat": false,
+        "order_data": {
+            "address_id": "1",
+            "pay_code": "cod",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": ""
+        },
+        "expected_status_code": 200,
+        "expected_status": -100,
+        "expected_msg": "登录超时请重新登录"
+    },
+    {
+        "title": "购物车为空提交订单",
+        "need_login": true,
+        "need_add_cart": false,
+        "need_cart2": false,
+        "is_repeat": false,
+        "order_data": {
+            "address_id": "1",
+            "pay_code": "cod",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": ""
+        },
+        "expected_status_code": 200,
+        "expected_status": -9,
+        "expected_msg": "你的购物车没有选中商品"
+    },
+    {
+        "title": "不选择收货地址提交订单",
+        "need_login": true,
+        "need_add_cart": true,
+        "need_cart2": true,
+        "is_repeat": false,
+        "order_data": {
+            "address_id": "",
+            "pay_code": "cod",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": ""
+        },
+        "expected_status_code": 200,
+        "expected_status": 0,
+        "expected_msg": "请先填写收货人信息"
+    },
+    {
+        "title": "不选择支付方式提交订单",
+        "need_login": true,
+        "need_add_cart": true,
+        "need_cart2": true,
+        "is_repeat": false,
+        "order_data": {
+            "address_id": "1",
+            "pay_code": "",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": ""
+        },
+        "expected_status_code": 200,
+        "expected_status": -1,
+        "expected_msg": "支付方式"
+    },
+    {
+        "title": "不存在的收货地址提交订单",
+        "need_login": true,
+        "need_add_cart": true,
+        "need_cart2": true,
+        "is_repeat": false,
+        "order_data": {
+            "address_id": "999999",
+            "pay_code": "cod",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": ""
+        },
+        "expected_status_code": 200,
+        "expected_status": -1,
+        "expected_msg": "地址"
+    },
+    {
+        "title": "无参提交订单",
+        "need_login": true,
+        "need_add_cart": true,
+        "need_cart2": true,
+        "is_repeat": false,
+        "order_data": {},
+        "expected_status_code": 200,
+        "expected_status": -1,
+        "expected_msg": "收货地址"
+    },
+    {
+        "title": "未确认订单直接提交",
+        "need_login": true,
+        "need_add_cart": true,
+        "need_cart2": false,
+        "is_repeat": false,
+        "order_data": {
+            "address_id": "1",
+            "pay_code": "cod",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": ""
+        },
+        "expected_status_code": 200,
+        "expected_status": -1,
+        "expected_msg": "订单"
+    },
+    {
+        "title": "重复提交订单",
+        "need_login": true,
+        "need_add_cart": true,
+        "need_cart2": true,
+        "is_repeat": true,
+        "order_data": {
+            "address_id": "1",
+            "pay_code": "cod",
+            "invoice_title": "",
+            "taxpayer": "",
+            "user_note": ""
+        },
+        "expected_status_code": 200,
+        "expected_status": -1,
+        "expected_msg": "订单"
+    }
+]

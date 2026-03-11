@@ -1,0 +1,72 @@
+[
+    {
+        "title": "注册成功",
+        "username": "13413412724",
+        "password": "123456",
+        "password2": "123456",
+        "verify_code": "8888",
+        "expected_status_code": 200,
+        "expected_status": 1,
+        "expected_msg": "注册成功"
+    },
+    {
+        "title": "两次密码不一致",
+        "username": "13900002222",
+        "password": "123456",
+        "password2": "654321",
+        "verify_code": "8888",
+        "expected_status_code": 200,
+        "expected_status": -1,
+        "expected_msg": "两次密码不一致"
+    },
+    {
+        "title": "该手机号已被注册",
+        "username": "17330066870",
+        "password": "123456",
+        "password2": "123456",
+        "verify_code": "8888",
+        "expected_status_code": 200,
+        "expected_status": -1,
+        "expected_msg": "该手机号已注册"
+    },
+    {
+        "title": "密码为空",
+        "username": "13900003333",
+        "password": "",
+        "password2": "123456",
+        "verify_code": "8888",
+        "expected_status_code": 200,
+        "expected_status": -1,
+        "expected_msg": "密码不能为空"
+    },
+    {
+        "title": "确认密码为空",
+        "username": "13900004444",
+        "password": "123456",
+        "password2": "",
+        "verify_code": "8888",
+        "expected_status_code": 200,
+        "expected_status": -1,
+        "expected_msg": "请输入确认密码"
+    },
+    {
+        "title": "密码过短-少于6位",
+        "username": "13900005555",
+        "password": "123",
+        "password2": "123",
+        "verify_code": "8888",
+        "expected_status_code": 200,
+        "expected_status": -1,
+        "expected_msg": "密码不能少于6个字符"
+    },
+    {
+        "title": "密码过长-超过20位",
+        "username": "13900006666",
+        "password": "123456789012345678901",
+        "password2": "123456789012345678901",
+        "verify_code": "8888",
+        "expected_status_code": 200,
+        "expected_status": -1,
+        "expected_msg": "密码不能超过20个字符"
+    }
+]

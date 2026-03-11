@@ -1,0 +1,1 @@
+{'status': 1, 'msg': '计算成功', 'result': {'shipping_price': 0, 'real_shipping_price': 0, 'coupon_price': 0, 'user_money': 0, 'integral_money': 0, 'pay_points': 0, 'order_amount': 1809.08, 'total_amount': 1809.08, 'goods_price': 1809.08, 'total_num': 1, 'order_prom_amount': 0, 'integral_msg': ''}}

@@ -1,0 +1,47 @@
+[
+    {
+        "title": "正常修改数量",
+        "cart_id": "49",
+        "goods_num": "2",
+        "selected": "1",
+        "expected_status_code": 200,
+        "expected_status": 1,
+        "expected_msg": "修改商品数量成功"
+    },
+    {
+        "title": "修改数量为0",
+        "cart_id": "49",
+        "goods_num": "0",
+        "selected": "1",
+        "expected_status_code": 200,
+        "expected_status": 0,
+        "expected_msg": "请输入数量"
+    },
+    {
+        "title": "修改数量为负数",
+        "cart_id": "49",
+        "goods_num": "-1",
+        "selected": "1",
+        "expected_status_code": 200,
+        "expected_status": -1,
+        "expected_msg": "至少"
+    },
+    {
+        "title": "修改为超大值",
+        "cart_id": "49",
+        "goods_num": "999999",
+        "selected": "1",
+        "expected_status_code": 200,
+        "expected_status": 0,
+        "expected_msg": "商品数量不能大于"
+    },
+    {
+        "title": "不存在的商品修改数量",
+        "cart_id": "999999",
+        "goods_num": "3",
+        "selected": "1",
+        "expected_status_code": 200,
+        "expected_status": 0,
+        "expected_msg": "不存在"
+    }
+]
