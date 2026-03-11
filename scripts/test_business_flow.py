@@ -24,7 +24,7 @@ class TestBusinessFlow:
     @allure.step("步骤：登录")
     def step_login(self, login_data, expected_status):
         """步骤：登录"""
-        print("\n📌 步骤1：登录")
+        print("\n步骤1：登录")
         LoginApi.get_verify_code(self.session)
         resp = LoginApi.login(self.session, login_data)
         allure.attach(
@@ -39,7 +39,7 @@ class TestBusinessFlow:
     @allure.step("步骤：添加商品到购物车")
     def step_add_cart(self, cart_data, expected_status):
         """步骤：添加商品到购物车"""
-        print("\n📌 步骤2：添加商品到购物车")
+        print("\n步骤2：添加商品到购物车")
         resp = CartApi.add_cart(self.session,cart_data)
         allure.attach(
             str(resp.json()),
@@ -54,7 +54,7 @@ class TestBusinessFlow:
     @allure.step("步骤：修改购物车数量")
     def step_change_num(self, change_data, expected_status):
         """步骤：修改购物车数量"""
-        print("\n📌 步骤3：修改购物车数量")
+        print("\n步骤3：修改购物车数量")
         resp = CartApi.change_cart(self.session,change_data)
         allure.attach(str(resp.json()), name="修改数量响应", attachment_type=allure.attachment_type.JSON)
         print(f"   修改数量结果：{resp.json()}")
@@ -65,26 +65,26 @@ class TestBusinessFlow:
     @allure.step("步骤：访问购物车页面(cart1)")
     def step_cart1(self):
         """步骤：购物车页面"""
-        print("\n📌 步骤4：访问购物车页面(cart1)")
+        print("\n 步骤4：访问购物车页面(cart1)")
         resp = OrderApi.cart1(self.session)
         print(f"   购物车页面状态码：{resp.status_code}")
         assert resp.status_code == 200
-        print("   ✅ 购物车页面访问成功")
+        print("    购物车页面访问成功")
         return resp
     @allure.step("步骤：确认订单(cart2)")
     def step_cart2(self):
         """步骤：确认订单页面"""
-        print("\n📌 步骤5：确认订单页面(cart2)")
+        print("\n 步骤5：确认订单页面(cart2)")
         resp = OrderApi.cart2(self.session)
         print(f"   确认订单页面状态码：{resp.status_code}")
         assert resp.status_code == 200
-        print("   ✅ 确认订单页面访问成功")
+        print("   确认订单页面访问成功")
         return resp
 
     @allure.step("步骤：提交订单(cart3)")
     def step_cart3(self, order_data, expected_status, expected_msg):
         """步骤：提交订单"""
-        print("\n📌 步骤6：提交订单(cart3)")
+        print("\n 步骤6：提交订单(cart3)")
         resp = OrderApi.cart3(self.session,order_data)
         allure.attach(str(resp.json()), name="提交订单响应", attachment_type=allure.attachment_type.JSON)
         print(f"   提交订单结果：{resp.json()}")
@@ -95,11 +95,11 @@ class TestBusinessFlow:
     @allure.step("步骤：退出登录")
     def step_logout(self):
         """步骤：退出登录"""
-        print("\n📌 步骤7：退出登录")
+        print("\n 步骤7：退出登录")
         resp = LoginApi.logout(self.session)
         print(f"   退出状态码：{resp.status_code}")
         assert resp.status_code == 200
-        print("   ✅ 退出成功")
+        print("   退出成功")
         return resp
 
     # ==================== 参数化测试 ====================
@@ -118,8 +118,8 @@ class TestBusinessFlow:
                            expected_order_again_msg, title):
 
         print(f"\n{'='*60}")
-        print(f"🔄 业务场景：【{title}】")
-        print(f"📋 执行步骤：{steps}")
+        print(f" 业务场景：【{title}】")
+        print(f" 执行步骤：{steps}")
         print(f"{'='*60}")
 
         for step in steps:
@@ -157,5 +157,5 @@ class TestBusinessFlow:
                     assert expected_order_again_msg in resp.json()["msg"]
 
         print(f"\n{'='*60}")
-        print(f"✅ 【{title}】全部步骤执行完毕！")
+        print(f"【{title}】全部步骤执行完毕！")
         print(f"{'='*60}")
