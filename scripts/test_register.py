@@ -1,6 +1,7 @@
 import allure
 import pytest
 import requests
+import time
 
 from api.register_api import RegisterApi
 from common.assert_tools import common_register_assert
@@ -27,6 +28,11 @@ class TestRegister:
             allure.dynamic.severity(allure.severity_level.CRITICAL)
         else:
             allure.dynamic.severity(allure.severity_level.NORMAL)
+
+        if title == "注册成功":
+            timestamp = str(int(time.time()))
+            reg_data["username"] = "139" + timestamp[-8:]
+            print(f"动态生成手机号：{reg_data['username']}")
 
         with allure.step("发送注册请求"):
             resp = RegisterApi.register(self.session,reg_data)
