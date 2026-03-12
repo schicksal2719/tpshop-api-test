@@ -196,9 +196,11 @@ allure serve ./reports/allure_results
     "expected_msg": "登陆成功"
 }
 ```
-### TPShop 
+### 验证码
 
 登录和注册需要验证码，项目中通过修改后端代码设置了万能验证码 8888，方便自动化测试。
+### 时间戳
+为了避免测试数据污染，使用Python时间戳动态生成手机号
 
 ## 🔄 Jenkins 持续集成
 
